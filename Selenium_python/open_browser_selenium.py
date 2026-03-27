@@ -11,7 +11,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 
-def get_driver(driver_index): # Функция получения веб драйвера браузера по индексу
+def get_driver(driver_index=0): # Функция получения веб драйвера браузера по индексу
     if driver_index == 0:
         # Возврат вебдрайвера браузера Chrome последней версии с указанным ранее параметром options
         return webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
@@ -49,7 +49,7 @@ def open_browser(driver): #Открытие сайта указанным бра
 
 
 def main(): #Основная программа
-    open_browser(get_driver(0)) #Открытие сайта браузером Chrome
+    open_browser(get_driver()) #Открытие сайта браузером Chrome
     open_browser(get_driver(1)) #Открытие сайта браузером Firefox
     open_browser(get_driver(2)) #Открытие сайта браузером Edge
 
